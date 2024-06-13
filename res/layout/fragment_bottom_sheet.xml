@@ -1,0 +1,173 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Fragment.bottomSheetFragment"
+    android:id="@+id/bottomSheet"
+    style="@style/Animation.Design.BottomSheetDialog"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="@dimen/dimen_32"
+
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <EditText
+        android:id="@+id/addNewTask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:hint="Add new task"
+        android:inputType="textPersonName"
+        android:padding="@dimen/dimen_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/priority_todo_button"
+        android:layout_width="77dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+
+        android:contentDescription="@string/image_description"
+        app:layout_constraintStart_toEndOf="@+id/today_calendar_button"
+        app:layout_constraintTop_toBottomOf="@+id/addNewTask"
+        app:srcCompat="@drawable/ic_assessment" />
+
+    <ImageButton
+        android:id="@+id/save_todo_button"
+        android:layout_width="70dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toEndOf="@+id/priority_todo_button"
+        app:layout_constraintTop_toBottomOf="@+id/addNewTask"
+        app:srcCompat="@drawable/ic_save_add_task" />
+    <ImageButton
+        android:id="@+id/today_calendar_button"
+        android:layout_width="74dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/image_description"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNewTask"
+        app:srcCompat="@drawable/ic_action_calendar" />
+
+    <ImageButton
+        android:id="@+id/alarm_button"
+
+        android:layout_width="74dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/image_description"
+        app:layout_constraintLeft_toRightOf="@+id/priority_todo_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNewTask"
+        app:srcCompat="@drawable/ic_alarm" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="244dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="48dp"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priority_todo_button" />
+
+    <CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="318dp"
+        android:layout_height="296dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.059"
+        />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_priority"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:elevation="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priority_todo_button">
+
+        <RadioButton
+            android:id="@+id/radioButton_dailyDask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/teal_200"
+            android:text="Daily Task" />
+
+        <RadioButton
+            android:id="@+id/radioButton_assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/teal_200"
+            android:layout_marginRight="3sp"
+            android:layout_marginLeft="3sp"
+            android:text="Assignment" />
+
+        <RadioButton
+            android:id="@+id/radioButton_exam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/teal_200"
+            android:text="Ezam" />
+    </RadioGroup>
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/alarm_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:headerBackground="@color/dark_purple"
+        android:numbersBackgroundColor="@color/purple_200"
+        android:visibility="gone"/>
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/calendar_group"
+        android:layout_width="280dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:constraint_referenced_ids="calendar_view,,textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
